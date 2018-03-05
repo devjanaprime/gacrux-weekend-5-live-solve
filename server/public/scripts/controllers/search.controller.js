@@ -25,4 +25,9 @@ app.controller('SearchController', ['$http', 'FavoritesService', function ($http
     self.clearResults = function() {
         self.results = [];
     };
+
+    self.addFavorite = function (data, resourceType) {
+        data.resourceType = resourceType;
+        FavoritesService.addFavorite( data );
+    };
 }]);
