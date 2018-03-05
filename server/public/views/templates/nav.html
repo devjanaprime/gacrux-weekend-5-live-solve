@@ -1,0 +1,16 @@
+
+<nav ng-controller="NavController as vm">
+    
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#!/search">Search SWAPI</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!/favorites">Favorites</a>
+        </li>    
+        <li class="justify-content-end nav-item">
+            <a class="nav-link disabled">Favorites: {{vm.favCount.list.length}}</a>
+        </li>
+    </ul>
+
+</nav>

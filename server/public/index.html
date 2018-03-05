@@ -9,5 +9,11 @@
   </head>
   <body>
     <h1>SWAPI Search</h1>
+    <body ng-app="myApp">
+    <div class="container">      
+        <div ng-include="'/views/templates/nav.html'"></div>
+        <main class="row" ng-view>
+        </main>
+    </div>
   </body>
 </html>

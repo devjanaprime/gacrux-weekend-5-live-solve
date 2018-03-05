@@ -1,0 +1,14 @@
+<div class="col-md-12">
+    <h1>Favorites View</h1>
+
+    <div class="card-columns">
+        <div class="card" style="width: 18rem;" ng-repeat="result in vm.results.list">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <!-- templates -->
+            <div class="card-body" ng-include="'views/templates/' + result.resourceType + '.html'"></div>
+            <button class="btn btn-primary" ng-click="vm.deleteFavorite(result)">Remove Favorite</button>
+
+        </div>
+    </div>
+</div>
+

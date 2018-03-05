@@ -1,0 +1,8 @@
+<!-- people template -->
+<h5 class="card-title">{{result.name}}</h5>
+<h6>Appears in:</h6>
+<ul>
+    <li ng-repeat="film in result.films">
+        <a ng-href="{{film}}">Link</a>
+    </li>
+</ul>
