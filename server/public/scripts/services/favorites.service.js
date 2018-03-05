@@ -1,47 +1,19 @@
 app.service('FavoritesService', ['$http', function($http) {
     var self = this;
 
-    // create an array inside an object
     self.favorites = { list: [] };
 
-    self.addFavorite = function(fav) {
-        // post to server
-        $http.post('/favorites', fav)
-            .then(function (response) {
-                console.log('saved thing');
-                self.getFavorites();
-            })
-            .catch(function (response) {
-                console.log('error on post: ', response);
-            });
+    self.addFavorite = function( fav ) {
+        console.log( 'in FavoritesService addFavorite:', fav );
     };
 
     self.getFavorites = function() {
-        // get from db
-        console.log('service getting favorites');
-        $http.get('/favorites')
-            .then(function (response) {
-                console.log('services getFavorites', response.data);
-                self.favorites.list = response.data;
-            })
-            .catch(function (response) {
-                console.log('error services get: ', response);
-            });        
+        console.log( 'in FavoritesService getFavorites' );
     };
 
-    self.deleteFavorite = function(id) {
-        $http.delete(`/favorites/${id}`)
-            .then(function (response) {
-                console.log('deleted thing');
-                self.getFavorites();
-            })
-            .catch(function (response) {
-                console.log('error on post: ', response);
-            }); 
+    self.deleteFavorite = function( id ) {
+        console.log( 'in FavoritesService deleteFavorite:', id );
     };
-
-    // on load
+    // init
     self.getFavorites();
-
-
 }]);
