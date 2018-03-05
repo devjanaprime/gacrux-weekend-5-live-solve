@@ -7,11 +7,31 @@ const Person = require('../models/swapi.models').Person;
 router.delete('/:id', (req, res) => {
     let favId = req.params.id;
     console.log( 'deleting:', favId );
+    Film.findByIdAndRemove(
+        { "_id": favId }, ( error, removedDocument ) => {
+            if( error ){
+                console.log('error on remove: ', error);
+                res.sendStatus(500);
+            } else{
+                console.log('Document we removed: ', removedDocument);
+                res.sendStatus(200);
+            }
+        } // end funk
+    ) // end find and remove
 });
 
 // GET all
 router.get('/', (req, res) => {
   console.log( 'getting all favorites' );
+  Film.find({}, (error, foundFavorites) => {
+      if (error) {
+          console.log('error on find: ', error);
+          res.sendStatus(500);
+      } else {
+          console.log('found Documents: ', foundFavorites);
+          res.send(foundFavorites);
+      }
+    }); // end find
 }); // end route
 
 // POST route

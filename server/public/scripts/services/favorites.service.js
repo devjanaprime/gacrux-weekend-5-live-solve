@@ -26,7 +26,16 @@ app.service('FavoritesService', ['$http', function($http) {
     };
 
     self.deleteFavorite = function( id ) {
-        console.log( 'in FavoritesService deleteFavorite:', id );
+      console.log( 'in FavoritesService deleteFavorite:', id );
+      let url = '/favorites/' + id;
+      $http.delete( url )
+        .then(function (response) {
+            console.log('deleted thing');
+            self.getFavorites();
+        })
+        .catch(function (response) {
+            console.log('error on post: ', response);
+        });
     };
     // init
     self.getFavorites();
